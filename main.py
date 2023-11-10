@@ -1,5 +1,4 @@
 import requests
-import selenium 
 from bs4 import BeautifulSoup
 import json
 import time
@@ -8,8 +7,9 @@ from termcolor import colored
 import Text
 
 # main 2 links to request and retrieve responses
-SIS_COURSES_LINK = "http://sis.rutgers.edu/soc/api/courses.json?year=2023&term=9&campus=NB"
-SIS_OPEN_COURSES_LINK = "http://sis.rutgers.edu/soc/api/openSections.json?year=2023&term=9&campus=NB"
+
+SIS_COURSES_LINK = "https://sis.rutgers.edu/soc/api/courses.json?year=2024&term=1&campus=NB"
+SIS_OPEN_COURSES_LINK = "https://sis.rutgers.edu/soc/api/openSections.json?year=2024&term=1&campus=NB"
 
 class Course:
     def __init__(self, index, prof, openStatus):
@@ -79,6 +79,6 @@ def ascii(text, color):
 if __name__ == '__main__':
     ascii("ru rah rauh", "RED")
     Courses = getPopoulatedCourses()
-    scheduleIndexes = ["07331", "07350", "09542"]
+    scheduleIndexes = ["06800", "06801", "06802", "06803"]
     Text.send("[STARTED] : Search")
     keepAliveCourseCheck(Courses, scheduleIndexes)
